@@ -35,7 +35,7 @@ cp config.buildinfo .config
 
 # setup defconfig
 make defconfig
-cat ../config.ea9200 >> .config
+cat ../ea9200/config.ea9200 >> .config
 make defconfig
 #make menuconfig
 
