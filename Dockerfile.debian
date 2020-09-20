@@ -14,7 +14,7 @@ RUN apt-get update && \
 
 ARG USERNAME=builder
 
-RUN useradd -m ${USERNAME} && \
+RUN useradd -m ${USERNAME} -G 0 && \
     echo "${USERNAME} ALL=NOPASSWD: ALL" > /etc/sudoers.d/user
 
 USER ${USERNAME}
