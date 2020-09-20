@@ -48,6 +48,6 @@ fi
 
 # build
 make download
-make -j$(nproc)
+make -j$(nproc) V=s 2>&1 | tee build.log | grep -i -E "^make.*(error|[12345]...Entering dir)"
 
 
