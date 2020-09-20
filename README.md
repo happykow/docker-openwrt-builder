@@ -8,7 +8,7 @@ Build tested:
 
 - OpenWrt-19.07.4
 
-A smaller container based on Alpine Linux is available in the alpine branch. But it does not build the old LEDE images.
+A smaller container based on Alpine Linux is available as `Dockerfile.alpine`
 
 ## Prerequisites
 

@@ -1,0 +1,17 @@
+FROM alpine:edge
+
+RUN apk add \
+      sudo git build-base bash ncurses-dev perl tar \
+      findutils patch coreutils gawk grep unzip bzip2 \
+      wget python2 python3 curl diffutils bsd-compat-headers \
+      less diffutils zlib-dev file \
+      curl vim nano
+
+ARG USERNAME=builder
+
+RUN useradd -m ${USERNAME} && \
+    echo "${USERNAME} ALL=NOPASSWD: ALL" > /etc/sudoers.d/user
+
+USER ${USERNAME}
+WORKDIR /home/${USERNAME}
+
