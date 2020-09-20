@@ -15,8 +15,8 @@ git tag -l
 git checkout v${WRT_VERSION}
 
 # edit feeds.conf
-sed "s/\^.*$/\#v${WRT_VERSION}/g" feeds.conf.default > feeds.conf
-
+#sed "s/\^.*$/\#v${WRT_VERSION}/g" feeds.conf.default > feeds.conf
+cat feeds.conf.default > feeds.conf
 
 # custom fix for ea9200
 echo "src-git ea9500_openwrt https://github.com/hurrian/ea9500_openwrt.git" >> feeds.conf
