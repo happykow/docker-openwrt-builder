@@ -26,7 +26,7 @@ Now the docker image is available. These steps only need to be done once.
 Create a build folder and link it into a new docker container:
 ```
 mkdir ~/mybuild
-docker run -v ~/mybuild:/home/user -it openwrt_builder /bin/bash
+docker run -v ~/mybuild:/home/builder -it openwrt_builder /bin/bash
 ```
 
 In the container console, enter:
@@ -52,7 +52,7 @@ hdiutil create -size 20g -fs "Case-sensitive HFS+" -volname OpenWrt OpenWrt.dmg 
 
 Then run:
 ```
-docker run -v /volumes/openwrt:/home/user -it openwrt_builder /bin/bash
+docker run -v /volumes/openwrt:/home/builder -it openwrt_builder /bin/bash
 ```
 
 ([Source](https://openwrt.org/docs/guide-developer/easy.build.macosx))

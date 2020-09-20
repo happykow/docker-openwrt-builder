@@ -13,6 +13,7 @@ ${DOCKER_CMD} pull debian:buster
 # builder container 
 ${DOCKER_CMD} build -t ${IMAGE_NAME} .
 
+# run shell in container
 [ ! -d ${BUILD_DIR} ] && mkdir ${BUILD_DIR}
 ${DOCKER_CMD} run --userns=keep-id --rm -v ${BUILD_DIR}:/home/builder --name wrtbuilder -it ${IMAGE_NAME} /bin/bash
 
