@@ -4,8 +4,14 @@
 
 BUILD_DIR=~/wrtbuild
 WRT_VERSION='19.07.4'
-DOCKER_CMD='podman'
 IMAGE_NAME=openwrt-builder
+
+if which podman; then
+  DOCKER_CMD='podman'
+  DOCKER_ARG='--userns=keep-id'
+else
+  DOCKER_CMD='docker'
+fi
 
 # pull image
 ${DOCKER_CMD} pull debian:buster
@@ -15,5 +21,9 @@ ${DOCKER_CMD} build -t ${IMAGE_NAME} .
 
 # run shell in container
 [ ! -d ${BUILD_DIR} ] && mkdir ${BUILD_DIR}
-${DOCKER_CMD} run --userns=keep-id --rm -v ${BUILD_DIR}:/home/builder --name wrtbuilder -it ${IMAGE_NAME} /bin/bash
+echo "RUN:
+${DOCKER_CMD} run ${DOCKER_ARG} --rm -v ${BUILD_DIR}:/home/builder --name wrtbuilder -it ${IMAGE_NAME} /bin/bash
+"
+
+${DOCKER_CMD} run ${DOCKER_ARG} --rm -v ${BUILD_DIR}:/home/builder --name wrtbuilder -it ${IMAGE_NAME} /bin/bash
 
