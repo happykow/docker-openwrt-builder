@@ -15,7 +15,7 @@ git tag -l
 git checkout v${WRT_VERSION}
 
 # edit feeds.conf
-sed "s@[^].*$@^v${WRT_VERISON}@" feeds.conf.default > feeds.conf
+sed "s/\^.*$/\^v${WRT_VERISON}/g" feeds.conf.default > feeds.conf
 
 
 # custom fix for ea9200
