@@ -28,6 +28,7 @@ echo "src-git ea9500_openwrt https://github.com/happykow/ea9500_openwrt.git" >> 
 # patch for ea9200
 # edit target/linux/bcm53xx/image/Makefile
 sed -i 's/^# TARGET_DEVICES += linksys-ea9200/TARGET_DEVICES += linksys-ea9200/' target/linux/bcm53xx/image/Makefile
+
 # custom files
 ln -s feeds/ea9500_openwrt/files files
 
@@ -54,5 +55,4 @@ fi
 # build
 make download
 make -j$(nproc) V=s 2>&1 | tee build.log | grep -i -E "^make.*(error|[12345]...Entering dir)"
-
 
