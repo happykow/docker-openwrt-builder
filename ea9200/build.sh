@@ -16,8 +16,8 @@ git checkout v${WRT_VERSION}
 
 # edit feeds.conf
 cat feeds.conf.default > feeds.conf
-sed -i "s/packages.git\^.*$/packages.git\^c614914da0b589069830a383abfa75518ebf4820/g" feeds.conf
-sed -i "s/luci.git\^.*$/luci.git\^8aceafe45622dd9168a129e86574f7aac0ce5352/g" feeds.conf
+#sed -i "s/packages.git\^.*$/packages.git\^c614914da0b589069830a383abfa75518ebf4820/g" feeds.conf
+#sed -i "s/luci.git\^.*$/luci.git\^8aceafe45622dd9168a129e86574f7aac0ce5352/g" feeds.conf
 
 # custom fix for ea9200
 echo "src-git ea9500_openwrt https://github.com/happykow/ea9500_openwrt.git" >> feeds.conf
