@@ -15,8 +15,14 @@ git tag -l
 git checkout v${WRT_VERSION}
 
 # edit feeds.conf
-#sed "s/\^.*$/\#v${WRT_VERSION}/g" feeds.conf.default > feeds.conf
-cat feeds.conf.default > feeds.conf
+#sed "s/\^.*$//g" feeds.conf.default > feeds.conf
+#cat feeds.conf.default > feeds.conf
+echo "
+src-git packages https://git.openwrt.org/feed/packages.git^c614914da0b589069830a383abfa75518ebf4820
+src-git luci https://git.openwrt.org/project/luci.git^8aceafe45622dd9168a129e86574f7aac0ce5352
+src-git routing https://git.openwrt.org/feed/routing.git^b77498bd56d5e45ab4577a1f4ad6ffc55b4a86b7
+src-git telephony https://git.openwrt.org/feed/telephony.git^85cb5591de23767f2b477010de4abc3fc3aaf0e1
+" > feeds.conf
 
 # custom fix for ea9200
 echo "src-git ea9500_openwrt https://github.com/hurrian/ea9500_openwrt.git" >> feeds.conf
