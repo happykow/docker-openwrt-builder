@@ -24,10 +24,11 @@ echo "src-git ea9500_openwrt https://github.com/hurrian/ea9500_openwrt.git" >> f
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
-# build for ea9200
+# patch for ea9200
 # edit target/linux/bcm53xx/image/Makefile
-# DEVICE_PACKAGES := $(BRCMFMAC_43602A1) $(USB3_PACKAGES) $(CUSTOM_PACKAGES) 
 sed -i 's/^# TARGET_DEVICES += linksys-ea9200/TARGET_DEVICES += linksys-ea9200/' target/linux/bcm53xx/image/Makefile
+# custom files
+ln -s feeds/ea9500_openwrt/files files
 
 # download seed.config
 curl -LO https://downloads.openwrt.org/releases/${WRT_VERSION}/targets/bcm53xx/generic/config.buildinfo
