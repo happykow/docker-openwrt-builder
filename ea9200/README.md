@@ -18,6 +18,7 @@ make image linksys-ea9200 PACKAGES="$(cat packages.txt | xargs)" FILES=files
 ```
 
 ### Links
-https://www.ifixit.com/Guide/Linksys+EA9200+Disassembly/71762
-
-
+* https://www.ifixit.com/Guide/Linksys+EA9200+Disassembly/71762
+* https://forum.openwrt.org/t/build-for-linksys-ea9500/1817/6
+* https://forum.openwrt.org/t/build-for-linksys-ea9500/1817
+* http://en.techinfodepot.shoutwiki.com/wiki/Linksys_EA9200

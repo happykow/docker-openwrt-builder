@@ -239,6 +239,7 @@ luci-proto-ipv6
 luci-proto-ppp
 luci-proto-relay
 luci-proto-wireguard
+luci-ssl-openssl
 luci-theme-bootstrap
 luci-theme-material
 map
